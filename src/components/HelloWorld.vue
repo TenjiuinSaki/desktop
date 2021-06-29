@@ -19,7 +19,7 @@
       <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
-    <h3>Ecosystem</h3>
+    <h3 @click="copy">Ecosystem</h3>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -32,6 +32,8 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import {clipboard} from 'electron'
+import fs from 'fs'
 
 @Options({
   props: {
@@ -40,6 +42,11 @@ import { Options, Vue } from 'vue-class-component';
 })
 export default class HelloWorld extends Vue {
   msg!: string
+
+  copy() {
+    clipboard.writeText('456')
+    console.log(fs.readdirSync('/'))
+  }
 }
 </script>
 
